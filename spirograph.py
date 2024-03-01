@@ -1,4 +1,5 @@
 import turtle
+import math
 
 class Spiro:
     def __init__(self, x_pos, y_pos, col, R, r, l) -> None:
@@ -27,8 +28,15 @@ class Spiro:
         self.t.showturtle()
         #go to first point
         self.t.up()
-        R,r,l = self.R, self.r, self.l
-        a=0
+        R,k,l = self.R, self.k, self.l
+        theta=0
+        x = R*((1-k)*math.cos(theta)+l*k*math.cos((1-k)*theta/k))
+        y = R*((1-k)*math.sin(theta)+l*k*math.sin((1-k)*theta/k))
+        self.t.setpos(self.x_pos, +x, self.y_pos+y)
+        self.t.down()
+
+    def draw(self):
+        R,k,l = self.R, self.k, self.l
     
 
 
